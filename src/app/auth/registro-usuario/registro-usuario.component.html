@@ -1,0 +1,51 @@
+
+
+<section class="section-register container-fluid p-4 rounded-3">
+   <form class="row g-3" (ngSubmit)="registrarse()">
+
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label text text-light">Nombre Completo</label>
+        <input type="text"
+               class="form-control nombre-usuario"
+               required=""
+               name="name"
+               [(ngModel)]="nuevoUsuario.name">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label text-light">Email</label>
+        <input type="email"
+               class="form-control mail-usuario"
+               required=""
+               name="mail"
+               [(ngModel)]="nuevoUsuario.mail">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label text-light">Contraseña</label>
+        <input type="password"
+               class="form-control password-usuario"
+               required=""
+               name="password"
+               [(ngModel)]="nuevoUsuario.password">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label text-light">Repetir Contraseña</label>
+        <input type="password"
+               class="form-control rep-password-usuario"
+               required=""
+               #repetirPassword>
+      </div>
+
+      <br>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary mt-3 text-light">Registrarse</button>
+      </div>
+      <p class="mt-2 text-center">
+        <a href="" class="link-log text-light" routerLink="">Ya tiene una cuenta? Haga click aqui</a>
+      </p>
+
+   </form>
+
+</section>

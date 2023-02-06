@@ -1,0 +1,19 @@
+
+.section-register {
+  position:absolute;
+  left: 25%;
+  background-color:#3E576C;
+  border: 0.2px solid #FFF;
+  width: 50vw;
+  height: 50vh;
+  margin-top: 150px;
+}
+
+@media (max-width: 770px){
+.section-register {
+  left: 5%;
+  width: 85vw;
+  height: auto;
+  margin-top: 60px;
+ }
+}
