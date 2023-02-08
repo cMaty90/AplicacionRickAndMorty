@@ -1,0 +1,38 @@
+<p class="text-center">bienvenido:perosnaje Buscado</p>
+<app-navegacion class="mt-0"></app-navegacion>
+<br>
+
+<!-- PATH -->
+<div>
+  <section class="ruta-acceso d-flex justify-content-center mb-3">
+    <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+  </section>
+</div>
+
+<!-- CARDS -->
+<div class="row w-100 ps-2">
+
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna"
+       *ngFor="let character of vectorSearchedCharacters">
+
+    <div class="card mb-3" style="width: 15rem;" (click)="mostrarPersonajeEspecifico(character)">
+      <img [src]="character.image" class="card-img-top" alt="imagen personaje">
+      <div class="card-body">
+        <p class="card-text">{{character.name}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BUTTONS AND PAGINATION -->
+<div class="d-flex justify-content-center justify-content-evenly mt-3 mb-5">
+  <button type="button"
+          class="btn btn-outline-warning"
+          (click)="changePreviousPage()">Anterior</button>
+
+  <button type="button"
+          class="btn btn-outline-warning"
+          (click)="changeNextPage()">Siguiente</button>
+</div>

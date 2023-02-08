@@ -1,17 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
 
-/*--------------app rick y morty estilos generales-----------*/
-
-
-html{
-  background-color: #3E576C;
+.ruta-acceso__input{
+ width: 50%;
+ margin: 10px 10px;
 }
 
+.nombre-usuario{
+ text-align: center;
+ font-family: sans-serif;
+ color: #75DA43;
+}
 
 .buscador__input{
  width: 50%;
  margin-right: 5px;
- border: none;
 }
 
 .buscador__btn{
@@ -23,6 +24,10 @@ html{
 }
 
 @media (max-width: 670px){
+ .ruta-acceso__input{
+  width: 90%;
+  margin-left: 5px;
+ }
  .buscador{
   display: flex;
   flex-direction: column;

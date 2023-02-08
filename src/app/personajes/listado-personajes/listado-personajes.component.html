@@ -1,1 +1,56 @@
-<p>listado-personajes works!!!!</p>
+
+<app-usuario></app-usuario>
+<app-navegacion class="mt-0"></app-navegacion>
+<br>
+<!-- PATH AND SEARCHER -->
+<div>
+  <section class="ruta-acceso d-flex justify-content-center mb-3">
+    <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+  </section>
+
+  <section class="buscador d-flex justify-content-center">
+    <input type="text"
+           placeholder=" ejemplo: Rick Sanchez"
+           class="buscador__input rounded-3"
+           #characterSearched>
+
+    <a class="buscador__btn text-decoration-none text-light p-2 rounded-2"
+       (click)="saveCharacterName()">
+      Buscar Personaje
+    </a>
+  </section>
+</div>
+
+<br>
+<!-- CARDS -->
+<div class="row w-100 ps-2">
+
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna"
+       *ngFor="let personaje of arrayPersonajes">
+
+    <div class="card mb-3" style="width: 15rem;" (click)="mostrarPersonajeEspecifico(personaje)">
+      <img [src]="personaje.image" class="card-img-top" alt="imagen personaje">
+      <div class="card-body">
+        <p class="card-text">{{personaje.name}}</p>
+        <button type="button" class="btn btn-outline-light">Agregar a Favoritos</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BUTTONS AND PAGINATION -->
+<div class="d-flex justify-content-center justify-content-evenly mt-3 mb-5">
+  <button type="button"
+          class="btn btn-outline-warning"
+          (click)="cambiarPaginaAnterior()">Anterior</button>
+
+  <button type="button"
+          class="btn btn-outline-warning"
+          (click)="cambiarPaginaSiguiente()">Siguiente</button>
+</div>
+
+
+
+

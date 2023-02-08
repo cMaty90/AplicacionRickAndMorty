@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ListadoPersonajesComponent } from './listado-personajes/listado-personajes.component';
 import { PersonajeEspecificoComponent } from './personaje-especifico/personaje-especifico.component';
+import { SearchedCharacterComponent } from './searched-character/searched-character.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: ':id',
         component:PersonajeEspecificoComponent
+      },
+      {
+        path: 'personaje-buscado/:name',
+        component:SearchedCharacterComponent
       },
       {
         path: '**',

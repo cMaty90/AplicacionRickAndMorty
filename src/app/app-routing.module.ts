@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./personajes/personajes.module').then(m => m.PersonajesModule)
   },
   {
+    path: 'episodios',
+    loadChildren: () => import('./episodes/episodes.module').then(m => m.EpisodesModule)
+  },
+  {
     path: '**',
     component:ErrorDireccionComponent
   },

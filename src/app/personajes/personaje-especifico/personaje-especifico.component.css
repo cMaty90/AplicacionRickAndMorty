@@ -1,0 +1,56 @@
+.tarjeta{
+  width: 25vw;
+  padding: 20px 20px;
+  margin-bottom: 20px;
+}
+
+.episodios{
+  width: 50vw;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.personaje-especifico{
+  display: flex;
+}
+
+.card{
+  background-color: #3D3D3B;
+}
+
+.card-body p{
+  color:#D2D2CC;
+}
+
+.columns{
+  color:#D2D2CC;
+}
+
+.columns:hover{
+  cursor: pointer;
+  color: aqua;
+}
+
+@media (max-width: 800px){
+
+  .personaje-especifico{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tarjeta{
+    width: 75vw;
+    margin-left: 50px;
+    margin-bottom: 20px;
+  }
+
+  .episodios{
+    width: 75vw;
+  }
+}
+
+@media (max-width: 390px){
+  .tarjeta, .episodios{
+    margin-left: 10px;
+  }
+}
