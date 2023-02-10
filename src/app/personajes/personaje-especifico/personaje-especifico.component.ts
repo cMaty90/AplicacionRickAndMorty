@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NameIdEpisode } from '../interfaces/personaje-especifico.interface';
 import { Location } from '../interfaces/personajes.interface';
 import { PersonajesService } from '../services/personajes.service';
 
@@ -26,14 +28,16 @@ export class PersonajeEspecificoComponent implements OnInit{
 
   imageCharacter: string = '';
   vectorEpisodes: string[] = []; //links episodes
-  vectorEpisodeNames: string[] = []; //name episodes
+  vectorEpisodeNames: NameIdEpisode[] = []; //name and id episodes
 
   ngOnInit(): void {
     this.showCardData();
     this.showListEpisodesData();
   }
 
-  constructor(private servicioPersonajes:PersonajesService){}
+  constructor(private servicioPersonajes: PersonajesService,
+    private router: Router) { }
+
   characterSpecificLink: string = JSON.parse(localStorage.getItem('linkPersonajeEspecifico')!);
 
   showCardData() {
@@ -60,15 +64,17 @@ export class PersonajeEspecificoComponent implements OnInit{
       for (let i = 0; i < this.vectorEpisodes.length; i++) {
       this.servicioPersonajes.getDataCharacterEpisodes(this.vectorEpisodes[i])
         .subscribe(resp => {
-          this.vectorEpisodeNames.push(resp.name);
+          this.vectorEpisodeNames.push({id:resp.id, name:resp.name});
         })
       }
     }, 1050);
   }
 
-  mostrarLinkEpisodio(episodes:string) {
-    let linkEpisode = `https://rickandmortyapi.com/api/episode?name=${episodes}`;
-    console.log(linkEpisode);
+  showSpecificEpisode(idEpisode:number) {
+    console.log(idEpisode);
+    let linkSpecificEpisode = `https://rickandmortyapi.com/api/episode/${idEpisode}`;
+    localStorage.setItem('linkSpecificEpisode', JSON.stringify(linkSpecificEpisode));
+    this.router.navigate([`episodios/${idEpisode}`])
   }
 
 }

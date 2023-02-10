@@ -1,5 +1,7 @@
+
 <app-usuario></app-usuario>
-<app-navegacion class="mt-0"></app-navegacion>
+<app-navegacion></app-navegacion>
+<br>
 
 <!-- PATH AND SEARCHER -->
 <div>
@@ -9,33 +11,34 @@
 
   <section class="buscador d-flex justify-content-center">
     <input type="text"
-           placeholder=" ejemplo: S01E01"
+           placeholder=" ejemplo: citadel"
            class="buscador__input rounded-3"
-           #searchedEpisode>
+           #searchedLocation>
 
     <a class="buscador__btn text-decoration-none text-light p-2 rounded-2"
-       (click)="saveSearchedEpisode()">
-      Buscar Episodio
+       (click)="saveSearchedLocation()">
+      Buscar Ubicacion
     </a>
   </section>
 </div>
-
+<br>
 <!-- CARDS -->
-<div class="row w-100 ps-2 mt-5">
-  <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna mb-3"
-       *ngFor="let episode of arrayEpisodes">
+<div class="row w-100 ps-2">
 
-    <div class="card mb-0 h-100" style="width: 15rem;" (click)="showSpecificEpisode(episode)">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna mb-3"
+       *ngFor="let location of arrayLocations">
+
+    <div class="card mb-0 h-100" style="width: 15rem;" (click)="showSpecificLocation(location.id)">
       <div class="card-body">
-        <h5 class="card-title">Episodio{{episode.id}}</h5>
+        <h5 class="card-text">{{location.name}}</h5>
         <hr class="text-secondary">
-        <h6 class="card-text">{{episode.name}}</h6>
-        <p class="card-text mb-0">{{episode.episode}}</p>
-        <p class="card-text">{{episode.air_date}}</p>
+        <p class="card-text mb-0">Tipo: {{location.type}}</p>
+        <p class="card-text">Dimension: {{location.dimension}}</p>
       </div>
     </div>
 
   </div>
+
 </div>
 
 <!-- BUTTONS AND PAGINATION -->
@@ -48,3 +51,4 @@
           class="btn btn-outline-warning"
           (click)="changeNextPage()">Siguiente</button>
 </div>
+

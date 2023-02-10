@@ -1,1 +1,34 @@
-<p>specific-episode works!</p>
+<app-usuario></app-usuario>
+<app-navegacion></app-navegacion>
+
+<section class="ruta-acceso d-flex justify-content-center">
+  <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+</section>
+<br>
+
+<section class="specific-episode mb-3">
+
+  <div class="specific-episode__info border border-secondary rounded-3 p-3">
+    <h4>Informacion Del Episodio</h4>
+    <hr class="text-scondary">
+    <p>Nombre Episodio: {{nameEpisode}}</p>
+    <p>Fecha Lanzamiento: {{airDateEpisode}}</p>
+    <p>Codigo Episodio: {{episodeCode}}</p>
+  </div>
+
+  <div class="specific-episode_characters border border-secondary rounded-3 p-3">
+    <h4 class="text-center">Perosnajes En Este Episodio</h4>
+    <hr class="text-scondary">
+    <div class="row">
+      <div class="characterNames col col-12 col-md-12 col-lg-6 columns"
+           *ngFor="let character of vectorCharacterNames"
+           (click)="showSpecificCharacter(character.id)">
+           {{character.name}}
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+

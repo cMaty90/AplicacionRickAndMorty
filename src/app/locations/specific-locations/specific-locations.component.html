@@ -1,0 +1,31 @@
+<app-usuario></app-usuario>
+<app-navegacion></app-navegacion>
+
+<section class="ruta-acceso d-flex justify-content-center">
+  <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+</section>
+<br>
+
+<section class="specific-location mb-3">
+
+  <div class="specific-location__info border border-secondary rounded-3 p-3">
+    <h4>Informacion Del Episodio</h4>
+    <hr class="text-scondary">
+    <p>Nombre: {{nameLocation}}</p>
+    <p>Tipo: {{typeLocation}}</p>
+    <p>Dimension: {{dimension}}</p>
+  </div>
+
+  <div class="specific-location_residents border border-secondary rounded-3 p-3">
+    <h4 class="text-center">Residentes En Esta Ubicacion</h4>
+    <hr class="text-scondary">
+    <div class="row">
+      <div class="residentNames col col-12 col-md-12 col-lg-6 columns"
+           *ngFor="let resident of vectorResidentsInLocation"
+           (click)="showSpecificResident(resident.id)">
+            {{resident.name}}
+      </div>
+    </div>
+  </div>
+
+</section>

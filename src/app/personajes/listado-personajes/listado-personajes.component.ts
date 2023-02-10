@@ -17,12 +17,12 @@ export class ListadoPersonajesComponent implements OnInit{
   @ViewChild('characterSearched') characterSearched!: ElementRef;
 
   arrayPersonajes: Result[] = [];
+  vectorFavorites: Result[] = [];
   contador: number = 1;
   apiUrl: string = `https://rickandmortyapi.com/api/character?page=${this.contador}`;
 
   ngOnInit(): void {
     this.mostrarConTipado();
-    localStorage.setItem('urlActual', JSON.stringify(this.apiUrl));
   }
 
   mostrarConTipado() {
@@ -41,7 +41,6 @@ export class ListadoPersonajesComponent implements OnInit{
       .subscribe(resp => {
         this.arrayPersonajes = resp.results;
       })
-    localStorage.setItem('urlActual', JSON.stringify(apiUrlSiguiente));
   }
 
   cambiarPaginaAnterior() {
@@ -57,7 +56,6 @@ export class ListadoPersonajesComponent implements OnInit{
     else {
       alert('no hay mas paginas anteriores');
     }
-
   }
 
   mostrarPersonajeEspecifico(personaje: Result) {
@@ -72,5 +70,10 @@ export class ListadoPersonajesComponent implements OnInit{
     let characterName = this.characterSearched.nativeElement.value;
     localStorage.setItem('specificCharacterNameSearched', JSON.stringify(characterName));
     this.router.navigate([`personajes/personaje-buscado/${characterName}`]);
+  }
+
+  saveFavoriteCharacter(personaje:Result) {
+    this.vectorFavorites.push(personaje);
+    localStorage.setItem('vectorFavorites', JSON.stringify(this.vectorFavorites));
   }
 }

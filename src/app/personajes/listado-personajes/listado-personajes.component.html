@@ -28,11 +28,18 @@
   <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna"
        *ngFor="let personaje of arrayPersonajes">
 
-    <div class="card mb-3" style="width: 15rem;" (click)="mostrarPersonajeEspecifico(personaje)">
-      <img [src]="personaje.image" class="card-img-top" alt="imagen personaje">
+    <div class="card mb-3" style="width: 15rem;">
+      <img [src]="personaje.image"
+           class="card-img-top"
+           alt="imagen personaje"
+           (click)="mostrarPersonajeEspecifico(personaje)">
+           
       <div class="card-body">
         <p class="card-text">{{personaje.name}}</p>
-        <button type="button" class="btn btn-outline-light">Agregar a Favoritos</button>
+
+        <button type="button"
+                class="btn btn-outline-light"
+                (click)="saveFavoriteCharacter(personaje)">Agregar a Favoritos</button>
       </div>
     </div>
 

@@ -23,7 +23,7 @@ export class PersonajesService {
     return this.http.get<PersonajeEspecifico>(url)
   }
 
-  getDataCharacterEpisodes(url:string): Observable<CharacterEpisodes>{
+  getDataCharacterEpisodes(url:string): Observable<CharacterEpisodes>{ //traer episodios del perosnaje
     return this.http.get<CharacterEpisodes>(url)
   }
 

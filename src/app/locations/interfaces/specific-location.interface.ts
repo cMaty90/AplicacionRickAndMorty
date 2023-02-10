@@ -1,4 +1,16 @@
-export interface PersonajeEspecifico {
+
+export interface SpecificLocation { //respuesta de una ubicacion especifica
+    id:        number;
+    name:      string;
+    type:      string;
+    dimension: string;
+    residents: string[];
+    url:       string;
+    created:   Date;
+}
+
+//para residentes en la ubicacion
+export interface ResidentInLocation {
     id:       number;
     name:     string;
     status:   string;
@@ -19,20 +31,13 @@ export interface Location {
 }
 
 
-export interface CharacterEpisodes {
-    id:         number;
-    name:       string;
-    air_date:   string;
-    episode:    string;
-    characters: string[];
-    url:        string;
-    created:    Date;
-}
-
-
-//creo una interface para guardar id y nombre de los
-//episodios del perosnaje especifico
-export interface NameIdEpisode{
+//para
+export interface NameIdResident{
   id: number;
   name: string;
 }
+
+
+
+
+

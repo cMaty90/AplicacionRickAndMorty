@@ -21,6 +21,14 @@ const routes: Routes = [
     loadChildren: () => import('./episodes/episodes.module').then(m => m.EpisodesModule)
   },
   {
+    path: 'ubicaciones',
+    loadChildren: () => import('./locations/locations.module').then(m => m.LocationsModule)
+  },
+  {
+    path: 'favoritos',
+    loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesModule)
+  },
+  {
     path: '**',
     component:ErrorDireccionComponent
   },

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListEpisodesComponent } from './list-episodes/list-episodes.component';
+import { SearchedEpisodeComponent } from './searched-episode/searched-episode.component';
 import { SpecificEpisodeComponent } from './specific-episode/specific-episode.component';
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: ':id',
         component:SpecificEpisodeComponent
+      },
+      {
+        path: 'episodio-buscado/:name',
+        component:SearchedEpisodeComponent
       },
       {
         path: '**',

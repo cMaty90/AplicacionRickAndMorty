@@ -1,0 +1,36 @@
+<app-usuario></app-usuario>
+<app-navegacion></app-navegacion>
+
+<section class="ruta-acceso d-flex justify-content-center mb-3">
+   <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+</section>
+
+<!-- CARDS -->
+<div class="row w-100 ps-2">
+
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna mb-3"
+       *ngFor="let location of vectorLocations">
+
+    <div class="card mb-0 h-100" style="width: 15rem;" (click)="showSpecificLocation(location.id)">
+      <div class="card-body">
+        <h5 class="card-text">{{location.name}}</h5>
+        <hr class="text-secondary">
+        <p class="card-text mb-0">Tipo:{{location.type}}</p>
+        <p class="card-text">Dimension:{{location.dimension}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- BUTTONS AND PAGINATION -->
+<div class="d-flex justify-content-center justify-content-evenly mt-3 mb-5">
+  <button type="button"
+          class="btn btn-outline-warning"
+          (click)="changePreviousPage()">Anterior</button>
+
+  <button type="button"
+          class="btn btn-outline-warning"
+          (click)="changeNextPage()">Siguiente</button>
+</div>

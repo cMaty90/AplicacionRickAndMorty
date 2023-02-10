@@ -1,0 +1,25 @@
+
+<app-usuario></app-usuario>
+<app-navegacion></app-navegacion>
+
+<section class="ruta-acceso d-flex justify-content-center mb-3">
+   <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+</section>
+
+
+<div class="row w-100 ps-2">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna"
+       *ngFor="let favorite of vectorFavorites">
+
+    <div class="card mb-3" style="width: 15rem;">
+      <img [src]="favorite.image"
+           class="card-img-top"
+           alt="imagen personaje">
+
+      <div class="card-body">
+        <p class="card-text">{{favorite.name}}</p>
+      </div>
+    </div>
+
+  </div>
+</div>

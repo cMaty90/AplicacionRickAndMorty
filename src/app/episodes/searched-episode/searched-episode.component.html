@@ -1,22 +1,10 @@
 <app-usuario></app-usuario>
-<app-navegacion class="mt-0"></app-navegacion>
+<app-navegacion></app-navegacion>
 
-<!-- PATH AND SEARCHER -->
+<!-- PATH -->
 <div>
   <section class="ruta-acceso d-flex justify-content-center mb-3">
     <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
-  </section>
-
-  <section class="buscador d-flex justify-content-center">
-    <input type="text"
-           placeholder=" ejemplo: S01E01"
-           class="buscador__input rounded-3"
-           #searchedEpisode>
-
-    <a class="buscador__btn text-decoration-none text-light p-2 rounded-2"
-       (click)="saveSearchedEpisode()">
-      Buscar Episodio
-    </a>
   </section>
 </div>
 
@@ -48,3 +36,4 @@
           class="btn btn-outline-warning"
           (click)="changeNextPage()">Siguiente</button>
 </div>
+

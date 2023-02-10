@@ -1,9 +1,10 @@
 
-.specific-episode{
+
+.specific-location{
   display: flex;
 }
 
-.specific-episode_info{
+.specific-location_info{
   width: 25vw;
   margin-right: 20px;
 }
@@ -12,27 +13,27 @@ p{
   color: #D2D2CC;
 }
 
-.specific-episode_characters{
+.specific-location_residents{
   width: 60vw;
   margin-left: 20px;
 }
 
-.characterNames{
+.residentNames{
   color:#D2D2CC;
 }
 
-.characterNames:hover{
+.residentNames:hover{
   color: aqua;
   cursor: pointer;
 }
 
 
 @media (max-width: 800px){
-  .specific-episode{
+  .specific-location{
     flex-direction: column;
   }
 
-  .specific-episode_characters{
+  .specific-location_residents{
     margin:15px 0px;
     width: auto;
   }
