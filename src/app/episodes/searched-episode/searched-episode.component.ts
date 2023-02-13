@@ -24,6 +24,7 @@ export class SearchedEpisodeComponent implements OnInit {
   arrayEpisodes: Episode[] = [];
   searchedEpisode: string = JSON.parse(localStorage.getItem('specificEpisodeNameSearched')!);
   linkSearchedEpisode = `https://rickandmortyapi.com/api/episode?episode=${this.searchedEpisode}`;
+  path: string = `Home / Episodios / Episodio Buscado / ${this.searchedEpisode}`;
 
   getNumberOfPages() {
       this.episodeService.getEpisodes(this.linkSearchedEpisode)

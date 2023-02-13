@@ -31,6 +31,15 @@
   color: aqua;
 }
 
+.origin:hover{
+  cursor: pointer;
+}
+
+.location:hover{
+  cursor: pointer;
+}
+
+
 @media (max-width: 800px){
 
   .personaje-especifico{

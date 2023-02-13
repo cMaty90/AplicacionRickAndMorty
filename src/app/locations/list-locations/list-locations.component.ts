@@ -24,6 +24,7 @@ export class ListLocationsComponent implements OnInit{
   numberOfPages: number = 0;
   arrayLocations: Location[] = [];
   linkLocations: string = `https://rickandmortyapi.com/api/location?page=${this.contador}`;
+  path: string = '';
 
   getNumberOfPages() {
       this.locationService.getLocations(this.linkLocations)
@@ -37,6 +38,8 @@ export class ListLocationsComponent implements OnInit{
     this.locationService.getLocations(this.linkLocations)
       .subscribe(resp => {
         this.arrayLocations = resp.results;
+        this.router.navigate([`/ubicaciones/pagina/${this.contador}`]);
+        this.path = `Home / ubicaciones / pagina / ${this.contador}`;
       })
   }
 
@@ -48,6 +51,8 @@ export class ListLocationsComponent implements OnInit{
       this.locationService.getLocations(apiUrlSiguiente)
       .subscribe(resp => {
         this.arrayLocations = resp.results;
+        this.router.navigate([`/ubicaciones/pagina/${this.contador}`]);
+        this.path = `Home / ubicaciones / pagina / ${this.contador}`;
       })
     }
     else {
@@ -63,6 +68,8 @@ export class ListLocationsComponent implements OnInit{
       this.locationService.getLocations(apiUrlAnterior)
       .subscribe(resp => {
         this.arrayLocations = resp.results;
+        this.router.navigate([`/ubicaciones/pagina/${this.contador}`]);
+        this.path = `Home / ubicaciones / pagina / ${this.contador}`;
       })
     }
     else {
@@ -83,6 +90,9 @@ export class ListLocationsComponent implements OnInit{
     this.router.navigate([`ubicaciones/ubicacion-buscada/${locationName}`]);
   }
 
+  redirecToPageOne() {
+    this.router.navigate(['/ubicaciones'])
+  }
 
 
 }

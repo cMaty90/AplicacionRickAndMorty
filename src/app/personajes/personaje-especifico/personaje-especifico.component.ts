@@ -29,6 +29,7 @@ export class PersonajeEspecificoComponent implements OnInit{
   imageCharacter: string = '';
   vectorEpisodes: string[] = []; //links episodes
   vectorEpisodeNames: NameIdEpisode[] = []; //name and id episodes
+  path: string = '';
 
   ngOnInit(): void {
     this.showCardData();
@@ -56,6 +57,8 @@ export class PersonajeEspecificoComponent implements OnInit{
 
         this.vectorEpisodes = resp.episode;
         console.log(resp)
+
+        this.path=`Home / Personajes / Personaje Especifico / ${resp.name}`
       })
   }
 
@@ -76,5 +79,26 @@ export class PersonajeEspecificoComponent implements OnInit{
     localStorage.setItem('linkSpecificEpisode', JSON.stringify(linkSpecificEpisode));
     this.router.navigate([`episodios/${idEpisode}`])
   }
+
+  showSpecificOrigin() {
+    this.servicioPersonajes.obtenerDatosPersonajeEspecifico(this.characterSpecificLink)
+      .subscribe(resp => {
+        let idOrigin = resp.origin.url.slice(-1);
+        let linkSpecificLocation = `https://rickandmortyapi.com/api/location/${idOrigin}`;
+        localStorage.setItem('linkSpecificLocation', JSON.stringify(linkSpecificLocation));
+        this.router.navigate(([`ubicaciones/${idOrigin}`]))
+      })
+  }
+
+  showSpecificLocation() {
+    this.servicioPersonajes.obtenerDatosPersonajeEspecifico(this.characterSpecificLink)
+      .subscribe(resp => {
+        let idLocation = resp.location.url.slice(-1);
+        let linkSpecificLocation = `https://rickandmortyapi.com/api/location/${idLocation}`;
+        localStorage.setItem('linkSpecificLocation', JSON.stringify(linkSpecificLocation));
+        this.router.navigate(([`ubicaciones/${idLocation}`]))
+      })
+  }
+
 
 }

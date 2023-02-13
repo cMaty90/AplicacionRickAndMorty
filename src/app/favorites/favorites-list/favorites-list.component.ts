@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Result } from 'src/app/personajes/interfaces/personajes.interface';
 
 @Component({
@@ -8,6 +9,8 @@ import { Result } from 'src/app/personajes/interfaces/personajes.interface';
 })
 export class FavoritesListComponent implements OnInit{
 
+  constructor(private router:Router){}
+
   ngOnInit(): void {
     this.showFavoriteCharacters();
   }
@@ -16,6 +19,14 @@ export class FavoritesListComponent implements OnInit{
 
   showFavoriteCharacters() {
     this.vectorFavorites = JSON.parse(localStorage.getItem('vectorFavorites')!);
+  }
+
+  mostrarPersonajeEspecifico(personaje: Result) {
+    console.log(personaje);
+    let idPersonaje = personaje.id;
+    let linkPerosnajeEspecifico = `https://rickandmortyapi.com/api/character/${idPersonaje}`;
+    localStorage.setItem('linkPersonajeEspecifico', JSON.stringify(linkPerosnajeEspecifico));
+    this.router.navigate([`personajes/${idPersonaje}`])
   }
 
 }

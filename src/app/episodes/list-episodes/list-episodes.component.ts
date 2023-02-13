@@ -24,6 +24,7 @@ export class ListEpisodesComponent implements OnInit{
   contador: number = 1;
   urlEpisodes: string = `https://rickandmortyapi.com/api/episode?page=${this.contador}`;
   numberOfPages: number = 0;
+  path: string = '';
 
   getNumberOfPages() {
       this.episodesService.getEpisodes(this.urlEpisodes)
@@ -37,6 +38,8 @@ export class ListEpisodesComponent implements OnInit{
     this.episodesService.getEpisodes(this.urlEpisodes)
       .subscribe(resp => {
         this.arrayEpisodes = resp.results;
+        this.router.navigate([`/episodios/pagina/${this.contador}`]);
+        this.path = `Home / episodios / pagina / ${this.contador}`;
       })
   }
 
@@ -48,7 +51,9 @@ export class ListEpisodesComponent implements OnInit{
       this.episodesService.getEpisodes(apiUrlSiguiente)
         .subscribe(resp => {
         console.log(resp)
-        this.arrayEpisodes = resp.results;
+          this.arrayEpisodes = resp.results;
+          this.router.navigate([`/episodios/pagina/${this.contador}`]);
+          this.path = `Home / episodios / pagina / ${this.contador}`;
       })
     }
     else {
@@ -64,6 +69,8 @@ export class ListEpisodesComponent implements OnInit{
       this.episodesService.getEpisodes(apiUrlAnterior)
       .subscribe(resp => {
         this.arrayEpisodes = resp.results;
+        this.router.navigate([`/episodios/pagina/${this.contador}`]);
+        this.path = `Home / episodios / pagina / ${this.contador}`;
       })
     }
     else {
@@ -84,6 +91,10 @@ export class ListEpisodesComponent implements OnInit{
     let episodeName = this.searchedEpisode.nativeElement.value;
     localStorage.setItem('specificEpisodeNameSearched', JSON.stringify(episodeName));
     this.router.navigate([`episodios/episodio-buscado/${episodeName}`]);
+  }
+
+  redirecToPageOne() {
+    this.router.navigate([`/episodios`])
   }
 
 }

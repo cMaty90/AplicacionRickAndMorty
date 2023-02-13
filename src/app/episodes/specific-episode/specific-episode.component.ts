@@ -25,6 +25,7 @@ export class SpecificEpisodeComponent implements OnInit {
   nameEpisode: string = '';
   airDateEpisode: string = '';
   episodeCode: string = '';
+  path: string = '';
 
 
   showDataSpecificEpisode() {
@@ -35,6 +36,8 @@ export class SpecificEpisodeComponent implements OnInit {
         this.episodeCode = resp.episode;
 
         this.vectorCharacters = resp.characters;
+
+        this.path = `Home / Episodios / Episodio Especifico / ${resp.name}`;
       })
   }
 
@@ -58,6 +61,6 @@ export class SpecificEpisodeComponent implements OnInit {
     this.router.navigate([`personajes/${character}`])
   }
 
-  
+
 
 }

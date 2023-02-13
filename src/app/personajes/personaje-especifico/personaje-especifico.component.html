@@ -3,7 +3,7 @@
 <app-navegacion></app-navegacion>
 
 <section class="ruta-acceso d-flex justify-content-center">
-  <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+  <input class="ruta-acceso__input form-control opacity-50" type="text" [value]="path" readonly>
 </section>
 <br>
 
@@ -17,8 +17,8 @@
         <p class="card-text mb-0">Status: {{status}}  </p>
         <p class="card-text mb-0">Specie: {{specie}} </p>
         <p class="card-text mb-0">Gender: {{gender}} </p>
-        <p class="mb-0">Origin:<a [href]="origin.url">{{origin.name}}</a></p>
-        <p>Location:<a [href]="location.url">{{location.name}} </a></p>
+        <p class="mb-0">Origin:  <a (click)="showSpecificOrigin()" class="origin">{{origin.name}}</a></p>
+        <p>Location:  <a (click)="showSpecificLocation()" class="location">{{location.name}} </a></p>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnDestroy} from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { UsuariosService } from '../services/usuarios.service';
   templateUrl: './inicio-sesion.component.html',
   styleUrls: ['./inicio-sesion.component.css']
 })
-export class InicioSesionComponent {
+export class InicioSesionComponent implements OnDestroy {
 
   constructor(private usuarioServicio: UsuariosService,
               private router: Router) { }
@@ -72,5 +72,10 @@ export class InicioSesionComponent {
       mail: '',
       password:''
     }
+  }
+
+
+  ngOnDestroy(): void {
+      localStorage.setItem('vectorFavorites', JSON.stringify([]));
   }
 }

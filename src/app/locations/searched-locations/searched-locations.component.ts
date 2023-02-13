@@ -26,6 +26,7 @@ export class SearchedLocationsComponent implements OnInit{
   contador: number = 1;
   numberOfPages: number = 0;
   linkSearchedLocation: string = `https://rickandmortyapi.com/api/location?name=${this.locationName}&page=${this.contador}`;
+  path: string = `Home / Ubicaciones / Ubicacion Buscada / ${this.locationName}`;
 
   vectorLocations: Location[] = [];
 

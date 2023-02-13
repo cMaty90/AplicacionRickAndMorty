@@ -1,0 +1,10 @@
+.card{
+  background-color: #3D3D3B;
+  cursor: pointer;
+
+}
+
+.card-text{
+  color:#D2D2CC;
+ font-family:'Nerko One', cursive;
+}

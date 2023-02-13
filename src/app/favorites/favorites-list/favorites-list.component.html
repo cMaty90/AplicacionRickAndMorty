@@ -3,7 +3,7 @@
 <app-navegacion></app-navegacion>
 
 <section class="ruta-acceso d-flex justify-content-center mb-3">
-   <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+   <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Favoritos" readonly>
 </section>
 
 
@@ -11,7 +11,7 @@
   <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center columna"
        *ngFor="let favorite of vectorFavorites">
 
-    <div class="card mb-3" style="width: 15rem;">
+    <div class="card mb-3" style="width: 15rem;" (click)="mostrarPersonajeEspecifico(favorite)">
       <img [src]="favorite.image"
            class="card-img-top"
            alt="imagen personaje">

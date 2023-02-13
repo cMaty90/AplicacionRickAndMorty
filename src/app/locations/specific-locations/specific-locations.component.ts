@@ -28,6 +28,7 @@ export class SpecificLocationsComponent implements OnInit{
   nameLocation: string = '';
   typeLocation: string = '';
   dimension: string = '';
+  path: string = '';
 
 
   showDataSpecificLocation() {
@@ -38,6 +39,8 @@ export class SpecificLocationsComponent implements OnInit{
         this.dimension = resp.dimension;
 
         this.vectorLinksLocations = resp.residents;
+
+        this.path = `Home / Ubicaciones / Ubicacion Especifica / ${resp.name}`;
       })
   }
 

@@ -5,7 +5,7 @@
 <!-- PATH AND SEARCHER -->
 <div>
   <section class="ruta-acceso d-flex justify-content-center mb-3">
-    <input class="ruta-acceso__input form-control opacity-50" type="text" value="Home / Personajes" readonly>
+    <input class="ruta-acceso__input form-control opacity-50" type="text" [value]="path" readonly>
   </section>
 
   <section class="buscador d-flex justify-content-center">
@@ -33,7 +33,7 @@
            class="card-img-top"
            alt="imagen personaje"
            (click)="mostrarPersonajeEspecifico(personaje)">
-           
+
       <div class="card-body">
         <p class="card-text">{{personaje.name}}</p>
 
@@ -50,11 +50,15 @@
 <!-- BUTTONS AND PAGINATION -->
 <div class="d-flex justify-content-center justify-content-evenly mt-3 mb-5">
   <button type="button"
-          class="btn btn-outline-warning"
+          class="btn btn-outline-warning btn-lg"
           (click)="cambiarPaginaAnterior()">Anterior</button>
 
   <button type="button"
-          class="btn btn-outline-warning"
+          class="btn btn-info btn-lg"
+          (click)="redirecToPageOne()">Pagina 1</button>
+
+  <button type="button"
+          class="btn btn-outline-warning btn-lg"
           (click)="cambiarPaginaSiguiente()">Siguiente</button>
 </div>
 

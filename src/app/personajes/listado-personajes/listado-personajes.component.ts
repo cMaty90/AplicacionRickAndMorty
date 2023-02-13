@@ -18,11 +18,23 @@ export class ListadoPersonajesComponent implements OnInit{
 
   arrayPersonajes: Result[] = [];
   vectorFavorites: Result[] = [];
+  vectorLS = JSON.parse(localStorage.getItem('vectorFavorites')!);
+
   contador: number = 1;
   apiUrl: string = `https://rickandmortyapi.com/api/character?page=${this.contador}`;
+  path: string = '';
 
   ngOnInit(): void {
     this.mostrarConTipado();
+
+    if (JSON.parse(localStorage.getItem('vectorFavorites')!) == null) {
+      localStorage.setItem('vectorFavorites', JSON.stringify([]));
+    }
+    else {
+      if (this.vectorLS.length>0) {
+        this.vectorFavorites = this.vectorLS;
+      }
+    }
   }
 
   mostrarConTipado() {
@@ -30,6 +42,8 @@ export class ListadoPersonajesComponent implements OnInit{
       .subscribe(resp => {
         console.log(resp)
         this.arrayPersonajes = resp.results;
+        this.router.navigate([`/personajes/pagina/${this.contador}`]);
+        this.path = `Home / personajes / pagina / ${this.contador}`;
       })
   }
 
@@ -40,6 +54,8 @@ export class ListadoPersonajesComponent implements OnInit{
     this.servicioPersonajes.conseguirPersonajes(apiUrlSiguiente)
       .subscribe(resp => {
         this.arrayPersonajes = resp.results;
+        this.router.navigate([`/personajes/pagina/${this.contador}`]);
+        this.path = `Home / personajes / pagina / ${this.contador}`;
       })
   }
 
@@ -51,6 +67,8 @@ export class ListadoPersonajesComponent implements OnInit{
       this.servicioPersonajes.conseguirPersonajes(apiUrlAnterior)
         .subscribe(resp => {
           this.arrayPersonajes = resp.results;
+          this.router.navigate([`/personajes/pagina/${this.contador}`]);
+          this.path = `Home / personajes / pagina / ${this.contador}`;
         })
     }
     else {
@@ -72,8 +90,16 @@ export class ListadoPersonajesComponent implements OnInit{
     this.router.navigate([`personajes/personaje-buscado/${characterName}`]);
   }
 
-  saveFavoriteCharacter(personaje:Result) {
-    this.vectorFavorites.push(personaje);
-    localStorage.setItem('vectorFavorites', JSON.stringify(this.vectorFavorites));
+  saveFavoriteCharacter(personaje: Result) {
+    if (this.vectorLS.length >= 0) {
+      this.vectorFavorites.push(personaje)
+      console.log(this.vectorFavorites)
+      this.vectorLS = this.vectorFavorites
+      localStorage.setItem('vectorFavorites',JSON.stringify(this.vectorLS))
+    }
+  }
+
+  redirecToPageOne() {
+    this.router.navigate(['/personajes'])
   }
 }

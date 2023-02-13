@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navegacion',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class NavegacionComponent {
 
+  constructor(private router: Router) { }
+
+  logOut() {
+    localStorage.removeItem('nombreUsuario');
+    this.router.navigate(['']);
+  }
 }

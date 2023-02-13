@@ -21,6 +21,7 @@ export class SearchedCharacterComponent implements OnInit{
   contador: number = 1;
   linkSearchedCharacter: string = `https://rickandmortyapi.com/api/character?name=${this.searchedCharacter}`;
   numberOfPages: number = 0;
+  path: string = '';
 
   getNumberOfPages() {
       this.serviceCharacter.conseguirPersonajes(this.linkSearchedCharacter)
@@ -41,6 +42,8 @@ export class SearchedCharacterComponent implements OnInit{
       .subscribe(resp => {
         console.log(resp);
         this.vectorSearchedCharacters = resp.results;
+
+        this.path=`Home / Personajes / Personaje Buscado / ${this.searchedCharacter}`
       })
   }
 
